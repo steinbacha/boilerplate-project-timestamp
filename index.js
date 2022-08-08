@@ -41,12 +41,12 @@ app.get(
   "/:api/:date",
   (req, res, next) => {
     let userDate = moment(req.params.date, "YYYY-MM-DD");
+    console.log(new Date(userDate).toString())
     if(moment(userDate).isValid()) {
-      res.json({"unix": Math.floor(new Date(userDate)), "utc": new Date(userDate).toUTCString()});
+      res.json({"unix": Math.floor(new Date(userDate)), "utc": new Date(userDate).toString()});
     } else  
     res.json({ error : "Invalid Date" })
     })
-
 
 // listen for requests :)
 
