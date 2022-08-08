@@ -40,7 +40,7 @@ app.get("/api/1451001600000", function (req, res) {
 app.get(
   "/:api/:date",
   (req, res, next) => {
-    let userDate = moment(req.params.date, "YYYY-MM-DD");
+    let userDate = moment(req.params.date);
     console.log(new Date(userDate).toString())
     if(moment(userDate).isValid()) {
       res.json({"unix": Math.floor(new Date(userDate)), "utc": new Date(userDate).toUTCString()});
